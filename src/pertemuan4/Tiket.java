@@ -2,21 +2,16 @@ package pertemuan4;
 
 public class Tiket {
     private String nama, noTelp, nmHotel, nmPesawat, tujuan;
-    private int jmlPenumpang, hrgPesawat, hrgTiket, totalPesawat;
-    private double jmlKamar, hrgKamar, diskon, totalHotel;
-        public Tiket(String nama, String telp, String tujuan) {
+    private int jmlPenumpang, hrgPesawat, jumlahKamar, hargaKamar;
+    private double diskon, totalHotel, totalPesawat;
+        public Tiket(String nama, String telp, String tujuan, String nmHotel, int jmlKamar,
+                     int hrgKamar, String nmPesawat, int jmlPenumpang, int hrgPesawat) {
         this.nama = nama;
         noTelp = telp;
         this.tujuan = tujuan;
-        }
-        public Tiket(String nmHotel) {
-            this.nmHotel = nmHotel;
-        }
-        public Tiket (double jmlKamar, double hrgKamar){
-        this.jmlKamar = jmlKamar;
-        this.hrgKamar = hrgKamar;
-        }
-        public Tiket(String nmPesawat, int jmlPenumpang, int hrgPesawat){
+        jumlahKamar = jmlKamar;
+        hargaKamar = hrgKamar;
+        this.nmHotel = nmHotel;
         this.nmPesawat = nmPesawat;
         this.jmlPenumpang = jmlPenumpang;
         this.hrgPesawat = hrgPesawat;
@@ -28,22 +23,23 @@ public class Tiket {
         public String getNmHotel(){
         return this.nmHotel;
         }
-         public double getjmlKamar(){return this.jmlKamar;}
+         public double getjmlKamar(){return this.jumlahKamar;}
         public double getHrgKamar(){
-        return this.hrgKamar;
+        return this.hargaKamar;
         }
-        public String getNmPesawat(){return this.nmPesawat;}
+        public String getnmPesawat(){return this.nmPesawat;}
         public int getjmlPenumpang(){
         return this.jmlPenumpang;
          }
-        public int getHrgPesawat(){
+        public int gethrgPesawat(){
         return this.hrgPesawat;
         }
         public String getTujuan(){return this.tujuan;}
-        public int getTiket(){return getHrgPesawat() * getjmlPenumpang();}
-        public int getTotalPesawat(){return getTiket() + (getjmlPenumpang() * 29000);}
+
+        public double getTotalPesawat(){return (gethrgPesawat() * getjmlPenumpang()) + (getjmlPenumpang() * 29000);}
         public double getDiskon(){return getHrgKamar() * 0.45;}
         public double getTotalHotel(){return(getHrgKamar() - getDiskon()) * getjmlKamar();}
+
 
 }
 
