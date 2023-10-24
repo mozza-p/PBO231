@@ -2,14 +2,13 @@ package pertemuan4;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.sql.SQLOutput;
 
 public class Utama {
     public static void main(String[] args) {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String nama, telp, tujuan, nmPesawat, nmHotel;
         int jmlKamar, hrgKamar, jmlPenumpang, hrgPesawat;
-        double diskon;
+
 
         Tiket pemesan = new Tiket("", "", "", "", 0, 0,
         "", 0, 0);
