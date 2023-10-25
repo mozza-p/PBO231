@@ -33,7 +33,7 @@ public class Utama {
                         jmlKamar = Integer.parseInt(br.readLine());
                         System.out.println("Harga per Kamar: ");
                         hrgKamar = Integer.parseInt(br.readLine());
-                        System.out.println("Nama Pesawat");
+                        System.out.println("Nama Pesawat: ");
                         nmPesawat = br.readLine();
                         System.out.println("Jumlah Penumpang: ");
                         jmlPenumpang = Integer.parseInt(br.readLine());
