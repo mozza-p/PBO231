@@ -7,19 +7,20 @@ import java.io.InputStreamReader;
 public class CRUD {
     //class ini merupakan kumpulan menu program
     /* di class ini bisa:
-     *   1. menambahkan import lib java IO di setiap methos
-     *   2. menambhakan tipe dara array utk penyimpanan array
-     *   3. buffered reader di tambahkan di mmasing" method
+     *   1. menambahkan import lib java IO di setiap method
+     *   2. menambahkan tipe dara array utk penyimpanan array
+     *   3. buffered reader di tambahkan di masing" method
      */
 
 
     //array : 1[baris] dan 2[baris][kolom] dimensi
-    //deklarasi array berdasar class yg ada (laundry dan transaksi)
+    //deklarasi array berdasarkan class yg ada (laundry dan transaksi)
+    //lakukan deklarasi array di setiap method
 
     Laundry master[];
-    transaksiLaundry transaksi [];
+    transaksiLaundry trans[];
 
-    String jenis, metode, kode, nmaa, tglCuci, tglAmbil;
+    String jenis, metode, kode, nama, tglCuci, tglAmbil;
     int harga, berat;
 
     public void insertMasterData() throws IOException{
@@ -44,16 +45,48 @@ public class CRUD {
     }
     public void insertTransaksi() throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        trans = new transaksiLaundry[2];
+        for (int i = 0; i < trans.length; i++) {
+            System.out.println("2. Menu Transaksi");
+            System.out.println("Entri kode: ");
+            kode = br.readLine();
+            System.out.println("Entri nama: ");
+            nama = br.readLine();
+            System.out.println("Entri jenis cuci \nCuci Setrika/Cuci Kering: ");
+            jenis = br.readLine();
+            System.out.println("Entri metode (Regular/Express): ");
+            metode = br.readLine();
+            System.out.println("Entri berat: ");
+            berat = Integer.parseInt(br.readLine());
+            System.out.println("Entri tanggal cuci: ");
+            tglCuci = br.readLine();
+            System.out.println("Entri tanggal ambil: ");
+            tglAmbil = br.readLine();
+            trans[i] = new transaksiLaundry(jenis, metode, harga, kode, nama, tglCuci, tglAmbil, berat);
+            System.out.println();
         }
-        public void cetakData() throws IOException{
+    }
+    public void cetakData() throws IOException {
         System.out.println("---CETAK DATA---");
-            for (int i = 0; i < transaksi.length; i++) {
-            transaksi[i].transaksi();
-            }
+        for (int i = 0; i < trans.length; i++) {
+        trans[i].transaksi();
+
+        }
     }
     public void cariData() throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("--CARI DATA--");
+        System.out.println("---3. Menu Cari Data---");
+        System.out.println("Entri kode transaksi yang dicari : ");
+        kode = br.readLine();
+        //cek apakah kode yang diisi sm dgn yang disimpan
+        for (int i = 0; i < trans.length ; i++) {
+            if (kode.equalsIgnoreCase(trans[i].getKode())){
+                trans[i].transaksi();
+            } else {
+                System.out.println("Data tidak ada");
+            }
+        }
         
     }
 }
